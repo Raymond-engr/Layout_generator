@@ -14,7 +14,7 @@ const IconContainer: React.FC = () => (
 
 const CollectionOptions: React.FC = () => {
   return (
-    <div className="grid grid-cols-1 items-center gap-2 mt-4 ml-20">
+    <div className="flex md:grid items-center gap-2 mt-4 ml-11">
       <CollectionHeader title="Pick Collection" />
       <CollectionHeader title="See All" />
     </div>

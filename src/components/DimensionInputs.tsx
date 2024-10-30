@@ -10,13 +10,13 @@ const DimensionInput = ({ label }: { label: string }) => {
   </div>
 );
 };
-const DimensionSelector = () => {
+const DimensionInputs = () => {
   return(
-  <div className="flex gap-4 mt-10 ml-20">
+  <div className="flex gap-4 mt-10 ml-10">
     <DimensionInput label="Height" />
     <DimensionInput label="Width" />
   </div>
 );
 };
 
-export default DimensionSelector;
+export default DimensionInputs;

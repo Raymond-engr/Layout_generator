@@ -1,17 +1,15 @@
 import React from 'react';
 import Header from './components/Header';
-import DimensionSelector from './components/DimensionSelector';
+import DimensionInputs from './components/DimensionInputs';
 import DimensionDisplay from './components/DimensionDisplay';
 import CollectionOptions from './components/CollectionOptions';
 const App: React.FC = () => {
   return (
-    <div className="min-h-screen">
+    <div className="h-screen w-full">
       <Header />
-      <div className="relative w-[1512px] h-[982px]">
-        <DimensionSelector />
+        <DimensionInputs />
         <DimensionDisplay />
         <CollectionOptions />
-      </div>
     </div>
   );
 };
