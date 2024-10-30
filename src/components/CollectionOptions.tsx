@@ -34,7 +34,7 @@ const CollectionHeader: React.FC<{
 }> = ({ title, isOpen, onClick, showInfo = false }) => (
   <button 
     onClick={onClick}
-    className="flex items-center text-[#191919] text-lg font-bold break-words w-full ml-7"
+    className="flex items-center text-[#191919] text-lg font-bold break-words w-full"
   >
     <span>{title}</span>
     {showInfo && (
@@ -71,33 +71,33 @@ const LocationItem: React.FC<{ item: LocationItem }> = ({ item }) => (
 );
 
 const CollectionOptions: React.FC = () => {
-  const [isPickCollectionOpen, setIsPickCollectionOpen] = useState(true);
+  const [isPickCollectionOpen, setIsPickCollectionOpen] = useState(false);
   const [isSeeAllOpen, setIsSeeAllOpen] = useState(false);
 
   return (
     <div className="w-64 p-4">
       <div className="space-y-4">
-        <div>
+        <div className="flex flex-row lg:flex-col md:flex-row md:items-center md:gap-4">
           <CollectionHeader 
             title="Pick Collection" 
             isOpen={isPickCollectionOpen}
             onClick={() => setIsPickCollectionOpen(!isPickCollectionOpen)}
             showInfo={true}
           />
-          {isPickCollectionOpen && (
-            <div className="mt-2 ml-4 space-y-1">
-              {locations.map((location, index) => (
-                <LocationItem key={index} item={location} />
-              ))}
-            </div>
-          )}
+          <CollectionHeader 
+            title="See All" 
+            isOpen={isSeeAllOpen}
+            onClick={() => setIsSeeAllOpen(!isSeeAllOpen)}
+          />
         </div>
-        
-        <CollectionHeader 
-          title="See All" 
-          isOpen={isSeeAllOpen}
-          onClick={() => setIsSeeAllOpen(!isSeeAllOpen)}
-        />
+
+        {isPickCollectionOpen && (
+          <div className="mt-2 ml-4 space-y-1">
+            {locations.map((location, index) => (
+              <LocationItem key={index} item={location} />
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
