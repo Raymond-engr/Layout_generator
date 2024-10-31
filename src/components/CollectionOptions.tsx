@@ -1,67 +1,39 @@
 import React, { useState } from "react";
-import { ChevronDown, ChevronRight, Info } from "lucide-react";
-
-interface LocationItem {
-  name: string;
-  isExpanded?: boolean;
-  subItems?: React.ReactNode;
-}
-
-const locations: LocationItem[] = [
-  "Hanoi", "Caclaques", "Reykjavik", "Onda", "Amphora", 
-  "Penang", "Madera", "Malfa", "Posidonia", "Rio", "Plain",
-  { 
-    name: "Lisboa",
-    isExpanded: true,
-    subItems: (
-      <div className="pl-4 py-2 flex gap-2">
-        <div className="w-6 h-6 bg-pink-50 border border-gray-200 rounded" />
-        <div className="w-6 h-6 bg-pink-100 border border-gray-200 rounded" />
-        <div className="w-6 h-6 bg-pink-200 border border-gray-200 rounded" />
-        <div className="w-6 h-6 bg-pink-300 border border-gray-200 rounded" />
-        <span className="text-gray-600 text-sm">Autofill</span>
-      </div>
-    )
-  },
-  "Malaga", "Siquijor", "Kent"
-].map(item => typeof item === 'string' ? { name: item } : item);
+import { ChevronDown, ChevronRight } from "lucide-react";
+import locations, { LocationItem } from "./LayoutOptions";
 
 const CollectionHeader: React.FC<{ 
   title: string;
   isOpen?: boolean;
   onClick?: () => void;
-  showInfo?: boolean;
-}> = ({ title, isOpen, onClick, showInfo = false }) => (
+}> = ({ title, isOpen, onClick }) => (
   <button 
     onClick={onClick}
-    className="flex items-center text-[#191919] text-lg font-bold break-words w-full"
+    className="flex items-center text-[#191919] text-lg font-bold font-['Mermaid'] break-words whitespace-nowrap"
   >
     <span>{title}</span>
-    {showInfo && (
-      <div className="ml-1 w-5 h-5 rounded-full bg-amber-500 flex items-center justify-center">
-        <span className="text-white text-xs">1</span>
-      </div>
-    )}
     {onClick && (
-      <IconContainer isOpen={isOpen} />
+      <div className="w-5 h-5 relative ml-1">
+        {isOpen ? (
+          <ChevronDown className="h-4 w-4 transition-transform duration-200 transform rotate-180" />
+        ) : (
+          <ChevronDown className="h-4 w-4 transition-transform duration-200" />
+        )}
+      </div>
     )}
   </button>
 );
 
-const IconContainer: React.FC<{ isOpen?: boolean }> = ({ isOpen }) => (
-  <div className="w-5 h-5 relative">
-    {isOpen ? (
-      <ChevronDown className="h-4 w-4 transition-transform duration-200 transform rotate-180" />
-    ) : (
-      <ChevronRight className="h-4 w-4 transition-transform duration-200" />
-    )}
-  </div>
-);
-
-const LocationItem: React.FC<{ item: LocationItem }> = ({ item }) => (
+const LocationItemComponent: React.FC<{ item: LocationItem; onToggle: () => void }> = ({ item, onToggle }) => (
   <div>
-    <div className="flex items-center py-1 text-gray-700">
-      <IconContainer isOpen={item.isExpanded} />
+    <div className="flex items-center py-1 text-black font-normal font-['Nohemi'] text-sm cursor-pointer" onClick={onToggle}>
+      <div className="w-5 h-5 relative mr-2">
+        {item.isExpanded ? (
+          <ChevronDown className="h-4 w-4 transition-transform" />
+        ) : (
+          <ChevronRight className="h-4 w-4 transition-transform" />
+        )}
+      </div>
       <span className={item.isExpanded ? "text-amber-500" : ""}>
         {item.name}
       </span>
@@ -73,6 +45,14 @@ const LocationItem: React.FC<{ item: LocationItem }> = ({ item }) => (
 const CollectionOptions: React.FC = () => {
   const [isPickCollectionOpen, setIsPickCollectionOpen] = useState(false);
   const [isSeeAllOpen, setIsSeeAllOpen] = useState(false);
+  const [expandedLocations, setExpandedLocations] = useState<{ [key: string]: boolean }>({});
+
+  const toggleLocation = (name: string) => {
+    setExpandedLocations(prev => ({
+      ...prev,
+      [name]: !prev[name],
+    }));
+  };
 
   return (
     <div className="w-64 p-4">
@@ -82,7 +62,6 @@ const CollectionOptions: React.FC = () => {
             title="Pick Collection" 
             isOpen={isPickCollectionOpen}
             onClick={() => setIsPickCollectionOpen(!isPickCollectionOpen)}
-            showInfo={true}
           />
           <CollectionHeader 
             title="See All" 
@@ -93,8 +72,12 @@ const CollectionOptions: React.FC = () => {
 
         {isPickCollectionOpen && (
           <div className="mt-2 ml-4 space-y-1">
-            {locations.map((location, index) => (
-              <LocationItem key={index} item={location} />
+            {locations.map((location) => (
+              <LocationItemComponent 
+                key={location.name} 
+                item={{ ...location, isExpanded: expandedLocations[location.name] }}
+                onToggle={() => toggleLocation(location.name)}
+              />
             ))}
           </div>
         )}
