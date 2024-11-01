@@ -1,4 +1,3 @@
-// layoutOptions.ts
 import React from "react";
 
 interface LocationItem {

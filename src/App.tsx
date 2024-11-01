@@ -8,8 +8,8 @@ const App: React.FC = () => {
     <div className="h-screen w-full">
       <Header />
         <DimensionInputs />
-        <DimensionDisplay />
         <CollectionOptions />
+        <DimensionDisplay />
     </div>
   );
 };
