@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './components/Header';
 import DimensionInputs from './components/DimensionInputs';
-import DimensionDisplay from './components/DimensionDisplay';
+import DimensionSelector from './components/DimensionSelector';
 import CollectionOptions from './components/CollectionOptions';
 const App: React.FC = () => {
   return (
@@ -9,7 +9,7 @@ const App: React.FC = () => {
       <Header />
         <DimensionInputs />
         <CollectionOptions />
-        <DimensionDisplay />
+        <DimensionSelector />
     </div>
   );
 };

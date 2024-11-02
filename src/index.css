@@ -1,6 +1,5 @@
 @import './assets/fonts/fonts.css';
 @import url('https://fonts.cdnfonts.com/css/sf-pro-text');
-@import url('https://fonts.googleapis.com/css2?family=Mermaid&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

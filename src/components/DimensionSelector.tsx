@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const DimensionDisplay: React.FC = () => {
+const DimensionSelector: React.FC = () => {
   const [selectedDimension, setSelectedDimension] = useState('9x9');
 
   const handleClick = (dimension: string) => {
@@ -54,4 +54,4 @@ const DimensionDisplay: React.FC = () => {
   );
 };
 
-export default DimensionDisplay;
+export default DimensionSelector;
