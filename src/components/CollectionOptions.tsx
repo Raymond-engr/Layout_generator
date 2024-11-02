@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { ChevronDown, ChevronRight } from "lucide-react";
 import locations, { LocationItem } from "./LayoutOptions";
 import ArrowUp from '../assets/icons/arrow-up.svg';
 import Arrowdown from '../assets/icons/itemArrowdown.svg';
@@ -12,7 +11,7 @@ const CollectionHeader: React.FC<{
 }> = ({ title, isOpen, onClick }) => (
   <button 
     onClick={onClick}
-    className="flex items-center text-[#191919] text-lg font-bold font-mermaid break-words whitespace-nowrap"
+    className="flex items-center text-[#191919] text-lg lg:text-lg font-bold font-mermaid break-words whitespace-nowrap"
   >
     <span>{title}</span>
     {onClick && (
@@ -60,7 +59,7 @@ const CollectionOptions: React.FC = () => {
   return (
     <div className="w-64 p-4">
       <div className="space-y-4">
-        <div className="flex flex-row gap-5 ml-4 lg:flex-col md:flex-row md:items-center md:gap-4">
+        <div className="flex flex-row gap-5 ml-8 lg:ml-0 lg:flex-col md:flex-row md:items-center md:gap-6">
           <CollectionHeader 
             title="Pick Collection" 
             isOpen={isPickCollectionOpen}
@@ -74,7 +73,7 @@ const CollectionOptions: React.FC = () => {
         </div>
 
         {isPickCollectionOpen && (
-          <div className="mt-1 ml-4 space-y-1">
+          <div className="mt-1 ml-8 space-y-1">
             {locations.map((location) => (
               <LocationItemComponent 
                 key={location.name} 
