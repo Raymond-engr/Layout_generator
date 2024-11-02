@@ -1,0 +1,40 @@
+@font-face {
+  font-family: 'Nohemi';
+  src: url('./nohemi/Nohemi-Regular-BF6438cc4d0e493.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nohemi';
+  src: url('./nohemi/Nohemi-Medium-BF6438cc5883899.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nohemi';
+  src: url('./nohemi/Nohemi-SemiBold-BF6438cc588a48a.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nohemi';
+  src: url('./nohemi/Nohemi-Bold-BF6438cc587b5b5.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nohemi';
+  src: url('./nohemi/Nohemi-Light-BF6438cc5899919.ttf') 
+  format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}

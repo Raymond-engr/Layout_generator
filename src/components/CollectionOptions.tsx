@@ -12,7 +12,7 @@ const CollectionHeader: React.FC<{
 }> = ({ title, isOpen, onClick }) => (
   <button 
     onClick={onClick}
-    className="flex items-center text-[#191919] text-lg font-bold font-['Mermaid'] break-words whitespace-nowrap"
+    className="flex items-center text-[#191919] text-lg font-bold font-mermaid break-words whitespace-nowrap"
   >
     <span>{title}</span>
     {onClick && (
@@ -29,8 +29,8 @@ const CollectionHeader: React.FC<{
 
 const LocationItemComponent: React.FC<{ item: LocationItem; onToggle: () => void }> = ({ item, onToggle }) => (
   <div>
-    <div className="flex items-center py-1 text-black font-normal font-['Nohemi'] text-sm cursor-pointer" onClick={onToggle}>
-      <div className="w-5 h-5 relative mt-1.5 mr-2">
+    <div className="flex items-center py-1 text-black font-normal font-nohemi text-sm cursor-pointer" onClick={onToggle}>
+      <div className="w-5 h-5 relative mt-0.5 mr-2">
         {item.isExpanded ? (
           <img className="transition-transform duration-200 transform invert-0 brightness-0" src={Arrowdown} alt="Arrowdown" />
         ) : (

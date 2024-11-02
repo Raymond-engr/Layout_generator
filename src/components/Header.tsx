@@ -6,7 +6,7 @@ const Header: React.FC = () => {
       <img className="w-56 h-12" src={logo} alt="Logo" />
       <div className="mt-2 flex justify-center">
       </div>
-      <div className="text-3xl font-bold font-[Mermaid]">
+      <div className="text-3xl font-bold font-mermaid">
         <span className="text-[#191919]">Layout </span>
         <span className="text-[#cb9b52]">Designer</span>
       </div>

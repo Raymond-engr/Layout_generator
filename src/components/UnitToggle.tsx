@@ -9,8 +9,8 @@ const UnitToggle: React.FC = () => {
       </div>
 
       {/* Labels */}
-      <div className="absolute left-[24px] top-[12px] text-white text-sm font-semibold font-[Nohemi]">cm</div>
-      <div className="absolute left-[93px] top-[12px] text-[#303825] text-sm font-medium font-[Nohemi]">in</div>
+      <div className="absolute left-[24px] top-[12px] text-white text-sm font-semibold font-nohemi">cm</div>
+      <div className="absolute left-[93px] top-[12px] text-[#303825] text-sm font-medium font-nohemi">in</div>
     </div>
   );
 };

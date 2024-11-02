@@ -18,7 +18,7 @@ const ActionButton: React.FC<ActionButtonProps> = ({ label, onClick, icon, disab
       }`}
     >
       {icon && <div className="w-5 h-5">{icon}</div>}
-      <span className="text-black text-base font-light font-['Nohemi']">{label}</span>
+      <span className="text-black text-base font-light font-nohemi">{label}</span>
     </button>
   );
 };

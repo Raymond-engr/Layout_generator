@@ -9,13 +9,13 @@ const DimensionInput = ({ label }: { label: string }) => {
 
   return (
     <div className="flex flex-col items-center">
-      <label className="text-[#cc9c53] text-sm font-normal font-[Nohemi]">{label}</label>
+      <label className="text-[#cc9c53] text-sm font-normal font-nohemi">{label}</label>
       <div className="w-[110px] h-[37px] bg-[#fbfbfb] rounded-[46px] border border-[#e7e7e7] flex items-center justify-center">
         <input
           type="number"
           value={value}
           onChange={handleChange}
-          className="bg-transparent text-black text-sm font-normal font-[Nohemi] w-full h-full text-center outline-[1px] rounded-[46px] pl-6 pr-6"
+          className="bg-transparent text-black text-sm font-normal font-nohemi w-full h-full text-center outline-[1px] rounded-[46px] pl-6 pr-6"
         />
       </div>
     </div>

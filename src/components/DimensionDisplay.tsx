@@ -36,7 +36,7 @@ const DimensionDisplay: React.FC = () => {
       </div>
 
       <div
-        className={`absolute left-[24px] top-[12px] text-sm font-semibold font-[Nohemi] ${
+        className={`absolute left-[24px] top-[12px] text-sm font-semibold font-nohemi ${
           selectedDimension === '9x9' ? 'text-white' : 'text-[#303825]'
         }`}
       >
@@ -44,7 +44,7 @@ const DimensionDisplay: React.FC = () => {
       </div>
       
       <div
-        className={`absolute left-[130px] top-[12px] text-sm font-semibold font-[Nohemi] ${
+        className={`absolute left-[130px] top-[12px] text-sm font-semibold font-nohemi ${
           selectedDimension === '13x13' ? 'text-white' : 'text-[#303825]'
         }`}
       >
