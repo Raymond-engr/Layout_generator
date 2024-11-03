@@ -2,7 +2,7 @@ import React from 'react';
 import logo from '../assets/icons/logo.svg';
 const Header: React.FC = () => {
   return (
-    <header className="px-8 flex items-center justify-between p-4 bg-white">
+    <header className="px-6 py-4 flex items-center justify-between bg-white">
       <img className="w-56 h-12" src={logo} alt="Logo" />
       <div className="mt-2 flex justify-center">
       </div>

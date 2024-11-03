@@ -8,9 +8,9 @@ const DimensionInput = ({ label }: { label: string }) => {
   };
 
   return (
-    <div className="flex flex-col items-center">
+    <div >
       <label className="text-[#cc9c53] text-sm font-normal font-nohemi">{label}</label>
-      <div className="w-[110px] h-[37px] md:w-[150px] md:h-[45px] lg:w-[120px] lg:h-[40px] bg-[#fbfbfb] rounded-[46px] border border-[#e7e7e7] flex items-center justify-center">
+      <div className="w-[110px] h-[37px] bg-[#fbfbfb] rounded-[46px] border border-[#e7e7e7] flex items-center justify-center">
         <input
           type="number"
           value={value}
@@ -24,7 +24,7 @@ const DimensionInput = ({ label }: { label: string }) => {
 
 const DimensionInputs = () => {
   return (
-    <div className="flex gap-4 mt-10 ml-10">
+    <div className="flex space-x-4 md:space-x-6 mt-2">
       <DimensionInput label="Height (mm)" />
       <DimensionInput label="Width (mm)" />
     </div>

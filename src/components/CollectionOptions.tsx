@@ -11,7 +11,7 @@ const CollectionHeader: React.FC<{
 }> = ({ title, isOpen, onClick }) => (
   <button 
     onClick={onClick}
-    className="flex items-center text-[#191919] text-lg lg:text-lg font-bold font-mermaid break-words whitespace-nowrap"
+    className="flex items-center text-[#191919] text-lg font-bold font-mermaid break-words whitespace-nowrap"
   >
     <span>{title}</span>
     {onClick && (
@@ -57,32 +57,46 @@ const CollectionOptions: React.FC = () => {
   };
 
   return (
-    <div className="w-64 p-4">
-      <div className="space-y-4">
-        <div className="flex flex-row gap-5 ml-8 lg:ml-0 lg:flex-col md:flex-row md:items-center md:gap-6">
+    <div className="py-4">
+      <div className="grid grid-cols-2 gap-4 md:gap-5 lg:grid-cols-1">
+        <div>
           <CollectionHeader 
             title="Pick Collection" 
             isOpen={isPickCollectionOpen}
             onClick={() => setIsPickCollectionOpen(!isPickCollectionOpen)}
           />
+          {isPickCollectionOpen && (
+            <div className="mt-1 space-y-1">
+              {locations.map((location) => (
+                <LocationItemComponent 
+                  key={location.name} 
+                  item={{ ...location, isExpanded: expandedLocations[location.name] }}
+                  onToggle={() => toggleLocation(location.name)}
+                />
+              ))}
+            </div>
+          )}
+        </div>
+
+        {/* Second column for "See All" and its subitems */}
+        <div>
           <CollectionHeader 
             title="See All" 
             isOpen={isSeeAllOpen}
             onClick={() => setIsSeeAllOpen(!isSeeAllOpen)}
           />
+          {isSeeAllOpen && (
+            <div className="mt-1 space-y-1">
+              <div className="text-sm text-gray-600">
+                Subitem 1
+              </div>
+              <div className="text-sm text-gray-600">
+                Subitem 2
+              </div>
+              {/* Additional subitems can be added here */}
+            </div>
+          )}
         </div>
-
-        {isPickCollectionOpen && (
-          <div className="mt-1 ml-8 space-y-1">
-            {locations.map((location) => (
-              <LocationItemComponent 
-                key={location.name} 
-                item={{ ...location, isExpanded: expandedLocations[location.name] }}
-                onToggle={() => toggleLocation(location.name)}
-              />
-            ))}
-          </div>
-        )}
       </div>
     </div>
   );

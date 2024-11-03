@@ -7,13 +7,16 @@ import Footer from './components/Footer';
 import ResponsiveActionButtons from './components/ResponsiveActionButtons';
 const App: React.FC = () => {
   return (
-    <div className="h-screen w-full">
+    <>
+    <div>
       <Header />
+      </div>
+      <div className="flex flex-col items-start px-6 py-4">
         <DimensionInputs />
         <CollectionOptions />
         <DimensionSelector />
-        <ResponsiveActionButtons />
     </div>
+    </>
   );
 };
 
