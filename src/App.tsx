@@ -1,8 +1,7 @@
 import React from 'react';
 import Header from './components/Header';
-import DimensionInputs from './components/DimensionInputs';
 import DimensionSelector from './components/DimensionSelector';
-import CollectionOptions from './components/CollectionOptions';
+import DimensionCollection from './ui/DimensionCollection';
 import Footer from './components/Footer';
 import ResponsiveActionButtons from './components/ResponsiveActionButtons';
 const App: React.FC = () => {
@@ -11,10 +10,11 @@ const App: React.FC = () => {
     <div>
       <Header />
       </div>
-      <div className="flex flex-col items-start px-6 py-4">
-        <DimensionInputs />
-        <CollectionOptions />
+      <div className="flex flex-col lg:flex-row items-start w-full px-4 py-3 md:px-6 md:py-4">
+        <DimensionCollection />
+        <div className="w-full">
         <DimensionSelector />
+        </div>
     </div>
     </>
   );

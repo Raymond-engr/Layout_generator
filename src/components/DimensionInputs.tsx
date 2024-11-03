@@ -24,7 +24,7 @@ const DimensionInput = ({ label }: { label: string }) => {
 
 const DimensionInputs = () => {
   return (
-    <div className="flex space-x-4 md:space-x-6 mt-2">
+    <div className="flex space-x-4 md:space-x- mt-2">
       <DimensionInput label="Height (mm)" />
       <DimensionInput label="Width (mm)" />
     </div>

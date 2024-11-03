@@ -58,46 +58,43 @@ const CollectionOptions: React.FC = () => {
 
   return (
     <div className="py-4">
-      <div className="grid grid-cols-2 gap-4 md:gap-5 lg:grid-cols-1">
-        <div>
-          <CollectionHeader 
-            title="Pick Collection" 
-            isOpen={isPickCollectionOpen}
-            onClick={() => setIsPickCollectionOpen(!isPickCollectionOpen)}
+      <div className="flex flex-row lg:flex-col gap-4 md:gap-5">
+  {/* First column for "Pick Collection" */}
+  <div className="flex-auto">
+    <CollectionHeader 
+      title="Pick Collection" 
+      isOpen={isPickCollectionOpen}
+      onClick={() => setIsPickCollectionOpen(!isPickCollectionOpen)}
+    />
+    {isPickCollectionOpen && (
+      <div className="mt-1 space-y-1">
+        {locations.map((location) => (
+          <LocationItemComponent 
+            key={location.name} 
+            item={{ ...location, isExpanded: expandedLocations[location.name] }}
+            onToggle={() => toggleLocation(location.name)}
           />
-          {isPickCollectionOpen && (
-            <div className="mt-1 space-y-1">
-              {locations.map((location) => (
-                <LocationItemComponent 
-                  key={location.name} 
-                  item={{ ...location, isExpanded: expandedLocations[location.name] }}
-                  onToggle={() => toggleLocation(location.name)}
-                />
-              ))}
-            </div>
-          )}
-        </div>
-
-        {/* Second column for "See All" and its subitems */}
-        <div>
-          <CollectionHeader 
-            title="See All" 
-            isOpen={isSeeAllOpen}
-            onClick={() => setIsSeeAllOpen(!isSeeAllOpen)}
-          />
-          {isSeeAllOpen && (
-            <div className="mt-1 space-y-1">
-              <div className="text-sm text-gray-600">
-                Subitem 1
-              </div>
-              <div className="text-sm text-gray-600">
-                Subitem 2
-              </div>
-              {/* Additional subitems can be added here */}
-            </div>
-          )}
-        </div>
+        ))}
       </div>
+    )}
+  </div>
+
+  {/* Second column for "See All" */}
+  <div className="flex-auto">
+    <CollectionHeader 
+      title="See All" 
+      isOpen={isSeeAllOpen}
+      onClick={() => setIsSeeAllOpen(!isSeeAllOpen)}
+    />
+    {isSeeAllOpen && (
+      <div className="mt-1 space-y-1">
+        {/* Placeholder for subitems under "See All" */}
+        <div className="text-sm text-gray-600">Subitem 1</div>
+        <div className="text-sm text-gray-600">Subitem 2</div>
+      </div>
+    )}
+  </div>
+</div>
     </div>
   );
 };
