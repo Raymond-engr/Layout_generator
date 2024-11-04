@@ -13,7 +13,6 @@ const Header: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile View */}
       <div className="flex items-center justify-between w-full md:hidden">
         <img className="w-[31px] h-[39px]" src={mobilelogo} alt="Logo" />
 

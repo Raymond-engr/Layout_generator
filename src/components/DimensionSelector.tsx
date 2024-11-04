@@ -10,7 +10,7 @@ const DimensionSelector: React.FC = () => {
 
   return (
     <div
-      className="w-[244px] h-[39px] relative mt-2 cursor-pointer"
+      className="w-[244px] h-[39px] relative mt-2 cursor-pointer md:hidden lg:block"
       onClick={(e) => {
         const containerRect = e.currentTarget.getBoundingClientRect();
         const clickPosition = e.clientX - containerRect.left;

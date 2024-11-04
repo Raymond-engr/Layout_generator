@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from './components/Header';
+import Header from './ui/Header';
 import DimensionSelector from './components/DimensionSelector';
 import DimensionCollection from './ui/DimensionCollection';
 import Footer from './components/Footer';
