@@ -59,8 +59,7 @@ const CollectionOptions: React.FC = () => {
   return (
     <div className="py-4">
       <div className="flex flex-row lg:flex-col gap-4 md:gap-5">
-  {/* First column for "Pick Collection" */}
-  <div className="flex-auto">
+  <div>
     <CollectionHeader 
       title="Pick Collection" 
       isOpen={isPickCollectionOpen}
@@ -79,8 +78,7 @@ const CollectionOptions: React.FC = () => {
     )}
   </div>
 
-  {/* Second column for "See All" */}
-  <div className="flex-auto">
+  <div>
     <CollectionHeader 
       title="See All" 
       isOpen={isSeeAllOpen}

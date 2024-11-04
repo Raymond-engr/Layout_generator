@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import DimensionSelector from '../components/DimensionSelector';
 
 const DimensionInput = ({ label }: { label: string }) => {
   const [value, setValue] = useState('');
@@ -24,9 +25,14 @@ const DimensionInput = ({ label }: { label: string }) => {
 
 const DimensionInputs = () => {
   return (
+    <div className="flex items-center justify-between">
     <div className="flex space-x-4 md:space-x-5 mt-2">
       <DimensionInput label="Height (mm)" />
       <DimensionInput label="Width (mm)" />
+    </div>
+    <div className="hidden md:block lg:hidden">
+    <DimensionSelector />
+    </div>
     </div>
   );
 };
