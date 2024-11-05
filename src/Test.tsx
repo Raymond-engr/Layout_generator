@@ -92,3 +92,52 @@ const TotalDisplay = () => (
 );
 
 export default Test;
+
+
+
+import React from 'react';
+
+const EmptyContainer: React.FC = () => {
+  const isEmpty = true; // Set to `true` if the container is empty
+
+  return (
+    <div className="w-[889px] h-[509px] bg-neutral-50 rounded-sm flex items-center justify-center">
+      {isEmpty ? (
+        <div className="text-gray-400 text-lg font-medium">
+          No items to display
+        </div>
+      ) : (
+        // Render content here when not empty
+        <div>
+          {/* Content goes here */}
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default EmptyContainer;
+
+
+<div className="w-full h-auto bg-neutral-50 rounded-sm flex items-center justify-center">
+      {isEmpty ? (
+        <div className="text-gray-400 text-lg font-medium">
+          No items to display
+        </div>
+      ) : (
+        // Render content here when not empty
+        <div>
+          {/* Content goes here */}
+          <div className="w-full h-auto relative">
+  <div className="grid grid-cols-4 grid-rows-4 gap-0.5 w-[240px] h-[240px]">
+    {Array.from({ length: 4 * 4 }).map((_, index) => (
+      <div key={index} className="w-full h-auto bg-gray-200 relative">
+        {/* Content for each grid item goes here */}
+      </div>
+    ))}
+  </div>
+</div>
+        </div>
+      )}
+    </div>
+
