@@ -1,8 +1,6 @@
 import React from 'react';
 import Header from './ui/Header';
 import DimensionSelector from './components/DimensionSelector';
-import DimensionInputs from './components/DimensionInputs';
-import CollectionOptions from './components/CollectionOptions';
 import DimensionCollection from './ui/DimensionCollection';
 import Footer from './components/Footer';
 import ResponsiveActionButtons from './components/ResponsiveActionButtons';
@@ -16,8 +14,11 @@ const App: React.FC = () => {
         <div className="w-full lg:w-auto items-center">
         <DimensionCollection />
         </div>
-        <div className="w-full md:hidden lg:block">
+        <div className="w-full">
+          <div className="md:hidden lg:block">
         <DimensionSelector />
+        </div>
+        
         </div>
     </div>
     </>
