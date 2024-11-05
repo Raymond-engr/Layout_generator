@@ -13,7 +13,9 @@ const App: React.FC = () => {
       <Header />
       </div>
       <div className="flex flex-col lg:flex-row items-start w-full px-4 py-3 md:px-6 md:py-4">
+        <div className="w-full lg:w-auto items-center">
         <DimensionCollection />
+        </div>
         <div className="w-full md:hidden lg:block">
         <DimensionSelector />
         </div>
