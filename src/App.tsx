@@ -2,7 +2,7 @@ import React from 'react';
 import Header from './ui/Header';
 import DimensionSelector from './components/DimensionSelector';
 import DimensionCollection from './ui/DimensionCollection';
-import LayoutPreview from './components/LayoutPreview';
+import GridContainer from './components/GridContainer';
 import Footer from './components/Footer';
 import ResponsiveActionButtons from './components/ResponsiveActionButtons';
 const App: React.FC = () => {
@@ -19,7 +19,7 @@ const App: React.FC = () => {
           <div className="md:hidden">
         <DimensionSelector />
         </div>
-        <LayoutPreview />
+        <Footer />
         </div>
     </div>
     </>

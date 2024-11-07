@@ -1,8 +1,8 @@
 import React from 'react';
 
-const EmptyContainer: React.FC = () => {
+const GridContainer: React.FC = () => {
     return (
-        <div className="my-4 lg:py-4 md:pl-6 w-full h-auto overflow-auto">
+        <div className="my-4 lg:py-4 lg:pl-6 w-full h-auto overflow-auto">
             <div className="grid gap-0.5 overflow-auto w-full h-[200px] sm:h-[200px] md:h-[300px] lg:h-[490px]"
                 style={{
                     gridTemplateColumns: "repeat(auto-fit, minmax(90px, 1fr))",
@@ -22,4 +22,4 @@ const EmptyContainer: React.FC = () => {
     );
 };
 
-export default EmptyContainer;
+export default GridContainer;

@@ -62,7 +62,7 @@ const ActionButton = ({
         className
       )}
     >
-      {icon && <div className="w-6 h-6">{icon}</div>}
+      {icon && <img className="w-6 h-6" src={icon} alt={label} />}
       {label && <span className={textStyles}>{label}</span>}
     </button>
   );
@@ -129,7 +129,7 @@ const ActionButtonContainer = ({
     <div className={cn(
       "flex flex-wrap gap-4",
       position === 'top' ? 
-        "justify-between md:justify-start" : 
+        "justify-between" : 
         "justify-center md:justify-between",
       "w-full"
     )}>

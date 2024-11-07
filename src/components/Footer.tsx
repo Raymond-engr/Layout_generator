@@ -1,4 +1,7 @@
 // In your main layout component
+import GridContainer from './GridContainer';
+import undo from '../assets/icons/backward.svg';
+import redo from '../assets/icons/forward.svg';
 import { 
     ActionButton, 
     SizeAdjustButton, 
@@ -14,8 +17,8 @@ import {
         <ActionLayout>
           <ActionButtonContainer position="top">
             <div className="flex gap-4">
-              <ActionButton label="Undo" variant="secondary" />
-              <ActionButton label="Redo" variant="secondary" />
+              <ActionButton variant="secondary" icon={undo} />
+              <ActionButton label="Redo" variant="secondary" icon={redo} />
             </div>
             
             <div className="flex gap-4">
@@ -29,6 +32,7 @@ import {
             </div>
           </ActionButtonContainer>
         </ActionLayout>
+        <GridContainer />
   
         {/* Your grid layout here */}
   
