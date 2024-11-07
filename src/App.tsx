@@ -11,12 +11,12 @@ const App: React.FC = () => {
     <div>
       <Header />
       </div>
-      <div className="flex flex-col lg:flex-row items-start w-full px-4 py-3 md:px-6 md:py-4">
+      <div className="flex flex-col lg:flex-row items-start w-full px-4 py-3 md:px-6 md:py-4 lg:px-10 lg:py-6">
         <div className="w-full lg:w-auto items-center">
         <DimensionCollection />
         </div>
         <div className="w-full">
-          <div className="md:hidden lg:block">
+          <div className="md:hidden">
         <DimensionSelector />
         </div>
         <LayoutPreview />

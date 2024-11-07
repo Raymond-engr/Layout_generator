@@ -4,7 +4,7 @@ import mobilelogo from '../assets/icons/partial_logo.svg';
 
 const Header: React.FC = () => {
   return (
-    <header className="flex items-center justify-between bg-white px-4 py-3 md:px-6 md:py-4">
+    <header className="flex items-center justify-between bg-white px-4 py-3 md:px-6 md:py-4 lg:px-10 lg:py-6">
       <div className="hidden md:flex items-center justify-between w-full">
         <img className="w-56 h-12" src={logo} alt="Logo" />
         <div className="text-3xl font-bold font-mermaid">
