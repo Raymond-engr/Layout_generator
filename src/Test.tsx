@@ -192,7 +192,7 @@ const EmptyContainer: React.FC = () => {
                 {Array.from({ length: 100 }).map((_, index) => (
                     <div
                         key={index}
-                        className="bg-gray-200 w-full h-full max-w-[110px] max-h-[110px] object-cover"
+                        className="bg-gray-200 w-full h-full max-w-[1200px] max-h-[120px] object-cover"
                     >
                         {/* Content for each grid item goes here */}
                     </div>

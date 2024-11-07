@@ -2,25 +2,23 @@ import React from 'react';
 
 const EmptyContainer: React.FC = () => {
     return (
-        <div className="w-full h-auto overflow-auto">
-    <div className="grid gap-1 overflow-hidden w-full 
-        h-[200px] sm:h-[200px] md:h-[300px] lg:h-[500px] grid-rows-2"
-        style={{
-            gridTemplateColumns: "repeat(auto-fit, minmax(95px, 1fr))",
-            gridAutoRows: "repeat(auto-fill, minmax(90px, auto))",
-        }}
-    >
-        {Array.from({ length: 100 }).map((_, index) => (
-            <div
-                key={index}
-                className="bg-gray-200 w-full h-full max-w-[135px] sm:max-w-[120px] max-h-[135px] sm:max-h-[120px] object-cover"
+        <div className="my-4 lg:py-4 md:pl-6 w-full h-auto overflow-auto">
+            <div className="grid gap-0.5 overflow-auto w-full h-[200px] sm:h-[200px] md:h-[300px] lg:h-[490px]"
+                style={{
+                    gridTemplateColumns: "repeat(auto-fit, minmax(90px, 1fr))",
+                    gridTemplateRows: "repeat(auto-fill, minmax(95px, auto))", // Base height for each grid item
+                }}
             >
-                {/* Content for each grid item goes here */}
+                {Array.from({ length: 100 }).map((_, index) => (
+                    <div
+                        key={index}
+                        className="bg-gray-200 w-full h-full max-w-[120px] max-h-[120px] relative object-cover"
+                    >
+                        {/* Content for each grid item goes here */}
+                    </div>
+                ))}
             </div>
-        ))}
-    </div>
-</div>
-
+        </div>
     );
 };
 
