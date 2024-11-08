@@ -19,7 +19,7 @@ const App: React.FC = () => {
           <div className="md:hidden">
         <DimensionSelector />
         </div>
-        <Footer />
+        <GridContainer />
         </div>
     </div>
     </>
