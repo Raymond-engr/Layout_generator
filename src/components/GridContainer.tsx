@@ -1,29 +1,34 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Plus, Minus } from 'lucide-react';
 
-const DynamicGrid = () => {
-  const [gridItems, setGridItems] = useState([]);
-  const [itemSize, setItemSize] = useState(90); // Initial size of grid items
-  const containerRef = useRef(null);
-  const [columns, setColumns] = useState(5); // Initial number of columns
-  const [rows, setRows] = useState(2); // Initial number of rows
+interface GridItem {
+  id: number;
+  size: number;
+}
 
-  // Calculate total number of items needed based on viewport size
+const DynamicGrid: React.FC = () => {
+  const [gridItems, setGridItems] = useState<GridItem[]>([]);
+  const [itemSize, setItemSize] = useState<number>(90); // Initial size of grid items
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const [columns, setColumns] = useState<number>(5); // Initial number of columns
+  const [rows, setRows] = useState<number>(2); // Initial number of rows
+
+  // Calculate the total number of items needed based on viewport size
   useEffect(() => {
     const calculateItems = () => {
       const viewportWidth = window.innerWidth;
       let newColumns = columns;
-      
-      // Responsive column calculation
+
+      // Responsive column calculation based on viewport width
       if (viewportWidth < 768) { // mobile
         newColumns = 5;
       } else if (viewportWidth < 1024) { // tablet
         newColumns = 6;
       } else { // desktop
-        newColumns = Math.floor(viewportWidth / (itemSize + 4)); // 8px for gap
+        newColumns = Math.floor(viewportWidth / (itemSize + 3)); // 8px for gap between items
       }
 
-      // Responsive row calculation
+      // Responsive row calculation based on viewport width
       let newRows = rows;
       if (viewportWidth < 768) {
         newRows = 2;
@@ -35,12 +40,12 @@ const DynamicGrid = () => {
 
       setColumns(newColumns);
       setRows(newRows);
-      
-      // Create grid items array
+
+      // Calculate the total number of grid items needed and create an array
       const totalItems = newColumns * newRows;
       const newItems = Array.from({ length: totalItems }, (_, index) => ({
         id: index,
-        size: itemSize
+        size: itemSize,
       }));
       setGridItems(newItems);
     };
@@ -50,15 +55,15 @@ const DynamicGrid = () => {
     return () => window.removeEventListener('resize', calculateItems);
   }, [itemSize]);
 
-  // Handle size increase
+  // Increase item size with a max limit of 150px
   const handleIncrease = () => {
-    const newSize = Math.min(itemSize + 10, 150); // Max size limit of 150px
+    const newSize = Math.min(itemSize + 10, 150);
     setItemSize(newSize);
   };
 
-  // Handle size decrease
+  // Decrease item size with a min limit of 60px
   const handleDecrease = () => {
-    const newSize = Math.max(itemSize - 10, 60); // Min size limit of 60px
+    const newSize = Math.max(itemSize - 10, 60);
     setItemSize(newSize);
   };
 
@@ -81,11 +86,11 @@ const DynamicGrid = () => {
 
       <div
         ref={containerRef}
-        className="border border-gray-200 rounded-lg overflow-auto"
+        className="border border-gray-200g overflow-auto"
         style={{
-          width: `${Math.min(columns * (itemSize + 4), window.innerWidth - 32)}px`,
-          height: `${Math.min(rows * (itemSize + 4), window.innerHeight - 150)}px`,
-          padding: '4px'
+          width: `${Math.min(columns * (itemSize + 3), window.innerWidth - 32)}px`,
+          height: `${Math.min(rows * (itemSize + 3), window.innerHeight - 150)}px`,
+          padding: '2px'
         }}
       >
         <div
