@@ -57,13 +57,13 @@ const DynamicGrid: React.FC = () => {
 
   // Increase item size with a max limit of 150px
   const handleIncrease = () => {
-    const newSize = Math.min(itemSize + 10, 150);
+    const newSize = Math.min(itemSize + 10, 190);
     setItemSize(newSize);
   };
 
   // Decrease item size with a min limit of 60px
   const handleDecrease = () => {
-    const newSize = Math.max(itemSize - 10, 60);
+    const newSize = Math.max(itemSize - 10, 30);
     setItemSize(newSize);
   };
 
