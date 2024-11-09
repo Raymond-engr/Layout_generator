@@ -261,7 +261,7 @@ const DynamicGrid: React.FC = () => {
 
       <div
         ref={containerRef}
-        className="border border-gray-200g overflow-auto"
+        className="border border-gray-100g overflow-auto"
         style={{
           width: `${Math.min(columns * (itemSize + 3), window.innerWidth - 32)}px`,
           height: `${Math.min(rows * (itemSize + 3), window.innerHeight - 150)}px`,
@@ -420,14 +420,7 @@ export default DynamicGrid;
 
 
 
-
-import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { Plus, Minus } from 'lucide-react';
-
-interface GridItem {
-  id: number;
-  size: number;
-}
+  
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Plus, Minus } from 'lucide-react';

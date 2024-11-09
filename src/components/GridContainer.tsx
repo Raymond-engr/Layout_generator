@@ -9,26 +9,26 @@ interface GridItem {
 const DynamicGrid: React.FC = () => {
   const [gridItems, setGridItems] = useState<GridItem[]>([]);
   const [itemSize, setItemSize] = useState<number>(90); // Initial size of grid items
-  const containerRef = useRef<HTMLDivElement | null>(null);
-  const [columns, setColumns] = useState<number>(5); // Initial number of columns
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [columns, setColumns] = useState<number>(2); // Initial number of columns
   const [rows, setRows] = useState<number>(2); // Initial number of rows
 
-  // Calculate the total number of items needed based on viewport size
+  // Calculate total number of items needed based on viewport size
   useEffect(() => {
     const calculateItems = () => {
       const viewportWidth = window.innerWidth;
       let newColumns = columns;
-
-      // Responsive column calculation based on viewport width
+      
+      // Responsive column calculation
       if (viewportWidth < 768) { // mobile
-        newColumns = 5;
+        newColumns = 2;
       } else if (viewportWidth < 1024) { // tablet
         newColumns = 6;
       } else { // desktop
-        newColumns = Math.floor(viewportWidth / (itemSize + 3)); // 8px for gap between items
+        newColumns = Math.floor(viewportWidth / (itemSize + 8)); // 8px for gap
       }
 
-      // Responsive row calculation based on viewport width
+      // Responsive row calculation
       let newRows = rows;
       if (viewportWidth < 768) {
         newRows = 2;
@@ -40,10 +40,10 @@ const DynamicGrid: React.FC = () => {
 
       setColumns(newColumns);
       setRows(newRows);
-
-      // Calculate the total number of grid items needed and create an array
+      
+      // Create grid items array
       const totalItems = newColumns * newRows;
-      const newItems = Array.from({ length: totalItems }, (_, index) => ({
+      const newItems: GridItem[] = Array.from({ length: totalItems }, (_, index) => ({
         id: index,
         size: itemSize,
       }));
@@ -53,18 +53,16 @@ const DynamicGrid: React.FC = () => {
     calculateItems();
     window.addEventListener('resize', calculateItems);
     return () => window.removeEventListener('resize', calculateItems);
-  }, [itemSize]);
+  }, [itemSize, columns, rows]);
 
-  // Increase item size with a max limit of 150px
+  // Handle size increase
   const handleIncrease = () => {
-    const newSize = Math.min(itemSize + 10, 190);
-    setItemSize(newSize);
+    setItemSize(prevSize => Math.min(prevSize + 10, 180)); // Max size limit of 150px
   };
 
-  // Decrease item size with a min limit of 60px
+  // Handle size decrease
   const handleDecrease = () => {
-    const newSize = Math.max(itemSize - 10, 30);
-    setItemSize(newSize);
+    setItemSize(prevSize => Math.max(prevSize - 10, 40)); // Min size limit of 60px
   };
 
   return (
@@ -86,9 +84,9 @@ const DynamicGrid: React.FC = () => {
 
       <div
         ref={containerRef}
-        className="border border-gray-200g overflow-auto"
+        className="border border-gray-100 overflow-auto"
         style={{
-          width: `${Math.min(columns * (itemSize + 3), window.innerWidth - 32)}px`,
+          width: `${Math.min(columns * (itemSize + 2), window.innerWidth - 32)}px`,
           height: `${Math.min(rows * (itemSize + 3), window.innerHeight - 150)}px`,
           padding: '2px'
         }}
@@ -109,7 +107,6 @@ const DynamicGrid: React.FC = () => {
                 height: `${itemSize}px`
               }}
             >
-              {/* Placeholder for SVG */}
               <div className="text-gray-400">SVG</div>
             </div>
           ))}
