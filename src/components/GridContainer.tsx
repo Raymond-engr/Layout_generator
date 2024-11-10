@@ -47,7 +47,7 @@ export const DynamicGrid: React.FC = () => {
   }, [updateGrid]);
 
   return (
-    <div className="w-full p-4 space-y-4">
+    <div className="w-full p-1 space-y-4">
       <div className="flex gap-4">
         <button
           onClick={() => handleSizeChange(false)}
@@ -65,14 +65,14 @@ export const DynamicGrid: React.FC = () => {
 
       <div
         ref={containerRef}
-        className="relative overflow-auto border border-gray-200 rounded-lg"
+        className="relative overflow-auto border border-gray-200"
         style={{
           maxWidth: '100%',
-          maxHeight: '80vh',
+          maxHeight: '30vh',
         }}
       >
         <div
-          className="grid gap-4 p-4"
+          className="grid gap-0.5 p-1"
           style={{
             width: `${metrics.columns * metrics.itemSize}px`,
             gridTemplateColumns: `repeat(${metrics.columns}, ${metrics.itemSize}px)`,
@@ -82,14 +82,14 @@ export const DynamicGrid: React.FC = () => {
           {items.map(item => (
             <div
               key={item.id}
-              className="bg-gray-50 rounded-lg shadow-sm transition-all duration-200 ease-in-out hover:shadow-md flex items-center justify-center"
+              className="bg-gray-200 shadow-sm transition-all duration-100 ease-in-out hover:shadow-md flex items-center justify-center"
               style={{
                 width: `${metrics.itemSize}px`,
                 height: `${metrics.itemSize}px`,
               }}
             >
               {item.content || (
-                <div className="w-1/2 h-1/2 bg-gray-200 rounded-md" />
+                <div className="bg-gray-200" />
               )}
             </div>
           ))}
