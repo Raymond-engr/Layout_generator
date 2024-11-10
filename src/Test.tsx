@@ -76,7 +76,7 @@ export const DynamicGrid: React.FC = () => {
   }, [updateGrid]);
 
   return (
-    <div className="w-full p-4 space-y-4">
+    <div className="w-full p-1 space-y-4">
       <div className="flex gap-4">
         <button
           onClick={() => handleSizeChange(false)}
@@ -94,14 +94,14 @@ export const DynamicGrid: React.FC = () => {
 
       <div
         ref={containerRef}
-        className="relative overflow-auto border border-gray-200 rounded-lg"
+        className="relative overflow-auto border border-gray-200"
         style={{
           maxWidth: '100%',
           maxHeight: '80vh',
         }}
       >
         <div
-          className="grid gap-4 p-4"
+          className="grid gap-0.5 p-1"
           style={{
             width: `${metrics.columns * metrics.itemSize}px`,
             gridTemplateColumns: `repeat(${metrics.columns}, ${metrics.itemSize}px)`,
@@ -111,14 +111,14 @@ export const DynamicGrid: React.FC = () => {
           {items.map(item => (
             <div
               key={item.id}
-              className="bg-gray-50 rounded-lg shadow-sm transition-all duration-200 ease-in-out hover:shadow-md flex items-center justify-center"
+              className="bg-gray-200 shadow-sm transition-all duration-100 ease-in-out hover:shadow-md flex items-center justify-center"
               style={{
                 width: `${metrics.itemSize}px`,
                 height: `${metrics.itemSize}px`,
               }}
             >
               {item.content || (
-                <div className="w-1/2 h-1/2 bg-gray-200 rounded-md" />
+                <div className="bg-gray-200" />
               )}
             </div>
           ))}
@@ -131,10 +131,11 @@ export const DynamicGrid: React.FC = () => {
 export default DynamicGrid;
 
 
+;
 
 //MAIN CODE BELOW
 
-  import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Plus, Minus } from 'lucide-react';
 
 interface GridItem {
@@ -159,7 +160,7 @@ const DynamicGrid: React.FC = () => {
       if (viewportWidth < 768) { // mobile
         newColumns = 2;
       } else if (viewportWidth < 1024) { // tablet
-        newColumns = 6;
+        newColumns = 10;
       } else { // desktop
         newColumns = Math.floor(viewportWidth / (itemSize + 8)); // 8px for gap
       }
@@ -202,7 +203,7 @@ const DynamicGrid: React.FC = () => {
   };
 
   return (
-    <div className="p-4">
+    <div className="p-1">
       <div className="flex gap-2 mb-4">
         <button
           onClick={handleIncrease}
@@ -220,10 +221,9 @@ const DynamicGrid: React.FC = () => {
 
       <div
         ref={containerRef}
-        className="border border-gray-100 overflow-auto"
+        className="border border-gray-100 w-full lg:w-[calc(100vw-33%-28px)] overflow-auto"
         style={{
-          width: `${Math.min(columns * (itemSize + 2), window.innerWidth - 32)}px`,
-          height: `${Math.min(rows * (itemSize + 3), window.innerHeight - 150)}px`,
+          height: `${(Math.min(rows * (itemSize + 3), window.innerHeight - 150))-5}px`,
           padding: '2px'
         }}
       >
@@ -253,6 +253,5 @@ const DynamicGrid: React.FC = () => {
 };
 
 export default DynamicGrid;
-
 
 

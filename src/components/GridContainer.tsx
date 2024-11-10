@@ -65,24 +65,22 @@ export const DynamicGrid: React.FC = () => {
 
       <div
         ref={containerRef}
-        className="relative overflow-auto border border-gray-200"
+        className="relative overflow-auto border max-w-full lg:max-w-[calc(100vw-33%-28px)] border-gray-200"
         style={{
-          maxWidth: '100%',
-          maxHeight: '30vh',
+          maxHeight: '80vh',
         }}
       >
         <div
           className="grid gap-0.5 p-1"
           style={{
-            width: `${metrics.columns * metrics.itemSize}px`,
+            width: 'fit-content',
             gridTemplateColumns: `repeat(${metrics.columns}, ${metrics.itemSize}px)`,
-            gridAutoRows: `${metrics.itemSize}px`,
           }}
         >
           {items.map(item => (
             <div
               key={item.id}
-              className="bg-gray-200 shadow-sm transition-all duration-100 ease-in-out hover:shadow-md flex items-center justify-center"
+              className="bg-gray-200 shadow-sm hover:shadow-md flex items-center justify-center"
               style={{
                 width: `${metrics.itemSize}px`,
                 height: `${metrics.itemSize}px`,
