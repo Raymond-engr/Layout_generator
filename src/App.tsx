@@ -3,11 +3,12 @@ import Header from './ui/Header';
 import DimensionSelector from './components/DimensionSelector';
 import DimensionCollection from './ui/DimensionCollection';
 import GridContainer from './components/GridContainer';
+import { GridProvider } from './components/gridClaude/GridContext';
 import Footer from './components/Footer';
 import ResponsiveActionButtons from './components/ResponsiveActionButtons';
 const App: React.FC = () => {
   return (
-    <>
+    <GridProvider>
     <div>
       <Header />
       </div>
@@ -22,7 +23,7 @@ const App: React.FC = () => {
         <GridContainer />
         </div>
     </div>
-    </>
+    </GridProvider>
   );
 };
 
