@@ -17,3 +17,19 @@ export const calculateTileCount = (width: number, height: number, tileSize: numb
   const rows = Math.ceil(height / tileSize);
   return cols * rows;
 };
+
+
+// src/components/utils.ts
+export const calculateGridSize = (containerWidth: number, itemBaseSize: number, maxRange: number) => {
+  // Calculate the number of items and size of each item to fit container
+  let columns = Math.floor(containerWidth / itemBaseSize);
+  let itemSize = containerWidth / columns;
+
+  // Check if items exceed the max range; if so, add a column and reset size
+  if (itemSize > maxRange) {
+      columns += 1;
+      itemSize = containerWidth / columns;
+  }
+
+  return { columns, itemSize };
+};
