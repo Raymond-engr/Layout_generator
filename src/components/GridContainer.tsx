@@ -34,9 +34,9 @@ const ResponsiveGrid: React.FC = () => {
       const container = containerRef.current;
       if (!container) return;
 
-      const containerWidth = container.offsetWidth - 60; // Accounting for padding (2 * 4px)
+      const containerWidth = container.offsetWidth - 10; // Accounting for padding (2 * 4px)
       const containerHeight = container.offsetHeight - 8;
-      const gap = 0; // 0.5rem gap
+      const gap = 1; // 0.5rem gap
       const rows = getDesiredRows();
 
       // Calculate how many columns can fit
@@ -79,6 +79,7 @@ const ResponsiveGrid: React.FC = () => {
     display: 'grid',
     gap: '1px',
     gridTemplateRows: `repeat(${getDesiredRows()}, minmax(0, 1fr))`,
+    gridTemplateColumns: `repeat(auto-fit, minmax(${itemSize}px, 1fr))`,
     gridAutoFlow: 'column',
     height: '100%',
   };
@@ -86,7 +87,7 @@ const ResponsiveGrid: React.FC = () => {
   return (
     <div 
       ref={containerRef}
-      className="w-full h-full mt-2 p-1 overflow-auto"
+      className="w-full h-auto mt-2 p-1 overflow-auto"
     >
       <div className="w-full lg:max-w-[calc(100vw-33%-28px)]" style={gridStyle}>
         {Array.from({ length: itemCount }, (_, index) => (
