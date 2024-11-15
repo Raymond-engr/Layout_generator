@@ -8,7 +8,7 @@ interface GridItemProps {
 const GridItem: React.FC<GridItemProps> = ({ index, size }) => {
   return (
     <div 
-      className="flex items-center justify-center bg-blue-100 rounded-lg shadow-md"
+      className="flex items-center justify-center bg-blue-100"
       style={{ width: `${size}px`, height: `${size}px` }}
     >
       <span className="text-blue-600 font-medium">{index + 1}</span>
@@ -34,9 +34,9 @@ const ResponsiveGrid: React.FC = () => {
       const container = containerRef.current;
       if (!container) return;
 
-      const containerWidth = container.offsetWidth - 8; // Accounting for padding (2 * 4px)
+      const containerWidth = container.offsetWidth - 60; // Accounting for padding (2 * 4px)
       const containerHeight = container.offsetHeight - 8;
-      const gap = 1; // 0.5rem gap
+      const gap = 0; // 0.5rem gap
       const rows = getDesiredRows();
 
       // Calculate how many columns can fit
@@ -77,19 +77,18 @@ const ResponsiveGrid: React.FC = () => {
 
   const gridStyle = {
     display: 'grid',
-    gap: '0.5rem',
+    gap: '1px',
     gridTemplateRows: `repeat(${getDesiredRows()}, minmax(0, 1fr))`,
     gridAutoFlow: 'column',
     height: '100%',
-    width: '100%'
   };
 
   return (
     <div 
       ref={containerRef}
-      className="w-full h-full p-1 overflow-hidden"
+      className="w-full h-full mt-2 p-1 overflow-auto"
     >
-      <div style={gridStyle}>
+      <div className="w-full lg:max-w-[calc(100vw-33%-28px)]" style={gridStyle}>
         {Array.from({ length: itemCount }, (_, index) => (
           <GridItem 
             key={index}
